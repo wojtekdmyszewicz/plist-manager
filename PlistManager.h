@@ -6,7 +6,7 @@
 
 @interface PlistManager : NSObject
 
-- (instancetype)initWithPlist:(NSString *)plistName;
+- (instancetype)initWithPlist:(NSString *)pList;
 - (NSString *)stringForKey:(NSString *)key;
 
 @end
