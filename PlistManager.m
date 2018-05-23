@@ -4,19 +4,16 @@
 
 #import "PlistManager.h"
 
-@interface PlistManager ()
-
-@property(nonatomic, strong) NSString *plistName;
-
-@end
-
 @implementation PlistManager
+{
+    NSString *pListName;
+}
 
-- (instancetype)initWithPlist:(NSString *)plistName
+- (instancetype)initWithPlist:(NSString *)pList
 {
     if (self = [super init])
     {
-        self.plistName = plistName;
+        pListName = pList;
     }
 
     return self;
@@ -24,7 +21,7 @@
 
 - (NSString *)stringForKey:(NSString *)key
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:self.plistName ofType:@"plist"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:pListName ofType:@"plist"];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
     return (NSString *) [dict valueForKey:key];
 }
